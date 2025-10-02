@@ -2,7 +2,8 @@
 
 A single-file changelog of all [DuckDB's releases](https://github.com/duckdb/duckdb/releases).
 
-> [!WARNING] Open the README file manually [here](README.md) to see all versions; GitHub
+> [!WARNING]
+> Open the README file manually [here](README.md) to see all versions; GitHub
 > truncates large README files on a repository's homepage by default.
 
 # Table of Contents
