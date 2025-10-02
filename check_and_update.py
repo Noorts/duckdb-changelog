@@ -52,8 +52,9 @@ def get_current_changelog_version():
         # Look for the first version header after the table of contents
         lines = content.split('\n')
         for line in lines:
-            if line.startswith("# v") and "{" in line:
-                # Extract version from line like "# v1.4.0 - DuckDB 1.4.0 "Andium" {#v140}"
+            if line.startswith("# v") and ("<a id=" in line or "{" in line):
+                # Extract version from line like "# v1.4.0 - DuckDB 1.4.0 "Andium" <a id="v140"></a>"
+                # or "# v1.4.0 - DuckDB 1.4.0 "Andium" {#v140}"
                 version = line.split()[1]  # Gets "v1.4.0"
                 return version
 
