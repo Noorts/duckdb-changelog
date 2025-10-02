@@ -1,6 +1,7 @@
 # DuckDB Changelog
 
-A single-file changelog of all [DuckDB's releases](https://github.com/duckdb/duckdb/releases).
+A single-file changelog of all [DuckDB's releases](https://github.com/duckdb/duckdb/releases) for easy `Ctrl+F` on all changes.
+Updated automatically as new DuckDB versions are released.
 
 > [!WARNING]
 > Open the README file manually [here](README.md) to see all versions; GitHub
