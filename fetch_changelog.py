@@ -125,7 +125,7 @@ def generate_table_of_contents(releases):
     Returns:
         str: Formatted table of contents
     """
-    toc = "## Table of Contents\n\n"
+    toc = "# Table of Contents\n\n"
 
     for release in releases:
         tag_name = release.get("tagName", "Unknown")
@@ -177,7 +177,7 @@ def format_changelog_entry(release_info):
     anchor = tag_name.replace(".", "").replace("-", "").lower()
 
     # Create the changelog entry
-    changelog_entry = f"## {tag_name}"
+    changelog_entry = f"# {tag_name}"
 
     if name and name != tag_name:
         changelog_entry += f" - {name}"
@@ -220,15 +220,29 @@ def write_changelog(changelog_content, filename="README.md"):
             with open(filename, 'r', encoding='utf-8') as f:
                 existing_content = f.read()
 
-            # Find where the changelog section starts
-            changelog_start = existing_content.find("## Changelog")
-            if changelog_start != -1:
-                # Keep everything before "## Changelog" and add the new changelog content
-                header_content = existing_content[:changelog_start + len("## Changelog")] + "\n\n"
-                final_content = header_content + changelog_content
+            # Find where the changelog section starts (look for Table of Contents or old Changelog header)
+            changelog_start = existing_content.find("# Table of Contents")
+            if changelog_start == -1:
+                # Fall back to looking for the old "## Changelog" header
+                changelog_start = existing_content.find("## Changelog")
+                if changelog_start != -1:
+                    # Keep everything before "## Changelog" and add the new changelog content (removing the old header)
+                    header_content = existing_content[:changelog_start]
+                    final_content = header_content.rstrip() + "\n\n" + changelog_content
+                else:
+                    # If no changelog section found, append to existing content
+                    final_content = existing_content.rstrip() + "\n\n" + changelog_content
             else:
-                # If no changelog section found, append to existing content
-                final_content = existing_content.rstrip() + "\n\n" + changelog_content
+                # Check if there's a "## Changelog" header before the Table of Contents
+                changelog_header_pos = existing_content.find("## Changelog")
+                if changelog_header_pos != -1 and changelog_header_pos < changelog_start:
+                    # Keep everything before "## Changelog" and add the new changelog content (removing the old header)
+                    header_content = existing_content[:changelog_header_pos]
+                    final_content = header_content.rstrip() + "\n\n" + changelog_content
+                else:
+                    # Keep everything before "# Table of Contents" and add the new changelog content
+                    header_content = existing_content[:changelog_start]
+                    final_content = header_content.rstrip() + "\n\n" + changelog_content
         except FileNotFoundError:
             # If README doesn't exist, just write the changelog content
             final_content = changelog_content
