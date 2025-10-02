@@ -115,6 +115,35 @@ def convert_author_mentions(text):
     return re.sub(pattern, replace_mention, text)
 
 
+def convert_issue_pr_links(text):
+    """
+    Convert issue and PR references in text to GitHub links.
+    Excludes "Internal #123" patterns from being converted.
+
+    Args:
+        text (str): The text containing issue/PR references
+
+    Returns:
+        str: Text with issue/PR references converted to GitHub links
+    """
+    if not text:
+        return text
+
+    # Pattern to match #123 references, but exclude "Internal #123"
+    # Use negative lookbehind to ensure "Internal " doesn't precede the #
+    pattern = r'(?<!Internal )#(\d+)'
+
+    def replace_reference(match):
+        number = match.group(1)
+        full_match = match.group(0)
+
+        # Link to GitHub issues page
+        return f'[{full_match}](https://github.com/duckdb/duckdb/issues/{number})'
+
+    # Replace all issue/PR references with GitHub links (except Internal #)
+    return re.sub(pattern, replace_reference, text)
+
+
 def generate_table_of_contents(releases):
     """
     Generate a table of contents for the changelog.
@@ -199,6 +228,10 @@ def format_changelog_entry(release_info):
 
         # Convert @author mentions to GitHub profile links
         description = convert_author_mentions(description)
+
+        # Convert issue/PR references to GitHub links
+        description = convert_issue_pr_links(description)
+
         changelog_entry += description
     else:
         changelog_entry += "No description available for this release."
