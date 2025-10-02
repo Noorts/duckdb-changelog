@@ -108,6 +108,10 @@ def commit_and_push_changes(version):
         subprocess.run(["git", "config", "user.name", "GitHub Actions"], check=True)
         subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
 
+        # Check git status before adding
+        print("Git status before adding files:")
+        subprocess.run(["git", "status"], check=True)
+
         # Add the README file
         subprocess.run(["git", "add", "README.md"], check=True)
 
@@ -123,10 +127,16 @@ def commit_and_push_changes(version):
 
         # Commit the changes
         commit_message = f"feat: add DuckDB {version}"
+        print(f"Committing with message: {commit_message}")
         subprocess.run(["git", "commit", "-m", commit_message], check=True)
 
+        # Check git status after commit
+        print("Git status after commit:")
+        subprocess.run(["git", "status"], check=True)
+
         # Push the changes
-        subprocess.run(["git", "push"], check=True)
+        print("Pushing changes to origin...")
+        subprocess.run(["git", "push", "origin", "HEAD"], check=True)
 
         print(f"Successfully committed and pushed changes for {version}")
         return True
