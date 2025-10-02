@@ -131,7 +131,7 @@ def generate_table_of_contents(releases):
         tag_name = release.get("tagName", "Unknown")
         name = release.get("name", "")
 
-        # Create anchor link (replace special characters with hyphens)
+        # Create simple anchor from tag name (e.g., v1.4.0 -> v140)
         anchor = tag_name.replace(".", "").replace("-", "").lower()
 
         # Create TOC entry
@@ -182,7 +182,7 @@ def format_changelog_entry(release_info):
     if name and name != tag_name:
         changelog_entry += f" - {name}"
 
-    changelog_entry += f" {{#{anchor}}}\n\n"
+    changelog_entry += f" <a id=\"{anchor}\"></a>\n\n"
     changelog_entry += f"*Released on {formatted_date}*\n\n"
 
     # Add GitHub links at the top

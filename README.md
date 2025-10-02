@@ -61,7 +61,7 @@ A single-file changelog of all [DuckDB's releases](https://github.com/duckdb/duc
 
 ---
 
-## v1.4.0 - DuckDB 1.4.0 "Andium" {#v140}
+## v1.4.0 - DuckDB 1.4.0 "Andium" <a id="v140"></a>
 
 *Released on 2025-09-16*
 
@@ -639,7 +639,7 @@ Please also refer to the announcement blog post: https://duckdb.org/2025/09/16/a
 
 ---
 
-## v1.3.2 - v1.3.2 Bugfix Release {#v132}
+## v1.3.2 - v1.3.2 Bugfix Release <a id="v132"></a>
 
 *Released on 2025-07-08*
 
@@ -706,7 +706,7 @@ This is a bug fix release for various issues discovered after we released 1.3.1.
 
 ---
 
-## v1.3.1 - v1.3.1 Bugfix Release {#v131}
+## v1.3.1 - v1.3.1 Bugfix Release <a id="v131"></a>
 
 *Released on 2025-06-16*
 
@@ -813,7 +813,7 @@ This is a bug fix release for various issues discovered after we released 1.3.0 
 
 ---
 
-## v1.3.0 - DuckDB 1.3.0 "Ossivalis"  {#v130}
+## v1.3.0 - DuckDB 1.3.0 "Ossivalis"  <a id="v130"></a>
 
 *Released on 2025-05-21*
 
@@ -1383,7 +1383,7 @@ Please also refer to the announcement blog post: https://duckdb.org/2025/05/21/a
 
 ---
 
-## v1.2.2 - v1.2.2 Bugfix Release {#v122}
+## v1.2.2 - v1.2.2 Bugfix Release <a id="v122"></a>
 
 *Released on 2025-04-08*
 
@@ -1463,7 +1463,7 @@ This is a bug fix release for various issues discovered after we released 1.2.1.
 
 ---
 
-## v1.2.1 - v1.2.1 Bugfix Release {#v121}
+## v1.2.1 - v1.2.1 Bugfix Release <a id="v121"></a>
 
 *Released on 2025-03-05*
 
@@ -1562,7 +1562,7 @@ This is a bug fix release for various issues discovered after we released 1.2.0.
 
 ---
 
-## v1.2.0 - DuckDB 1.2.0 "Histrionicus" {#v120}
+## v1.2.0 - DuckDB 1.2.0 "Histrionicus" <a id="v120"></a>
 
 *Released on 2025-02-05*
 
@@ -2295,7 +2295,7 @@ Please also refer to the announcement blog post: https://duckdb.org/2025/02/05/a
 
 ---
 
-## v1.1.3 - v1.1.3 Bugfix Release {#v113}
+## v1.1.3 - v1.1.3 Bugfix Release <a id="v113"></a>
 
 *Released on 2024-11-04*
 
@@ -2372,7 +2372,7 @@ This is a bug fix release for various issues discovered after we released 1.1.2.
 
 ---
 
-## v1.1.2 - v1.1.2 Bugfix Release {#v112}
+## v1.1.2 - v1.1.2 Bugfix Release <a id="v112"></a>
 
 *Released on 2024-10-14*
 
@@ -2454,7 +2454,7 @@ This is a bug fix release for various issues discovered after we released 1.1.1.
 
 ---
 
-## v1.1.1 - v1.1.1 Bugfix Release {#v111}
+## v1.1.1 - v1.1.1 Bugfix Release <a id="v111"></a>
 
 *Released on 2024-09-24*
 
@@ -2565,7 +2565,7 @@ This is a bug fix release for various issues discovered after we released 1.1.0.
 
 ---
 
-## v1.1.0 - DuckDB 1.1.0 "Eatoni" {#v110}
+## v1.1.0 - DuckDB 1.1.0 "Eatoni" <a id="v110"></a>
 
 *Released on 2024-09-09*
 
@@ -3275,7 +3275,7 @@ Please also refer to the announcement blog post: https://duckdb.org/2024/09/09/a
 
 ---
 
-## v1.0.0 - DuckDB 1.0.0 "Nivis" {#v100}
+## v1.0.0 - DuckDB 1.0.0 "Nivis" <a id="v100"></a>
 
 *Released on 2024-06-03*
 
@@ -3327,7 +3327,7 @@ Please also refer to the announcement blog post: https://duckdb.org/2024/06/03/a
 
 ---
 
-## v0.10.3 - v0.10.3 Bugfix Release {#v0103}
+## v0.10.3 - v0.10.3 Bugfix Release <a id="v0103"></a>
 
 *Released on 2024-05-22*
 
@@ -3565,7 +3565,7 @@ Even though this is "only" a bug fix release, there have been some major areas o
 
 ---
 
-## v0.10.2 - v0.10.2 Bugfix Release {#v0102}
+## v0.10.2 - v0.10.2 Bugfix Release <a id="v0102"></a>
 
 *Released on 2024-04-17*
 
@@ -3783,7 +3783,7 @@ This release has a number of bug fixes that change SQL semantics in a few edge c
 
 ---
 
-## v0.10.1 - v0.10.1 Bugfix Release {#v0101}
+## v0.10.1 - v0.10.1 Bugfix Release <a id="v0101"></a>
 
 *Released on 2024-03-18*
 
@@ -4069,7 +4069,7 @@ This is a bug fix release for various issues discovered after we released 0.10.0
 
 ---
 
-## v0.10.0 - DuckDB 0.10.0 "Fusca" {#v0100}
+## v0.10.0 - DuckDB 0.10.0 "Fusca" <a id="v0100"></a>
 
 *Released on 2024-02-13*
 
@@ -4576,7 +4576,7 @@ Also note that we've dropped' the "Preview" designation with this release. DuckD
 
 ---
 
-## v0.9.2 - 0.9.2 Bugfix Release  {#v092}
+## v0.9.2 - 0.9.2 Bugfix Release  <a id="v092"></a>
 
 *Released on 2023-11-14*
 
@@ -4698,7 +4698,7 @@ This is a bug fix release for various issues discovered after we released 0.9.1.
 
 ---
 
-## v0.9.1 - 0.9.1 Bugfix Release {#v091}
+## v0.9.1 - 0.9.1 Bugfix Release <a id="v091"></a>
 
 *Released on 2023-10-11*
 
@@ -4777,7 +4777,7 @@ This is a bug fix release for various issues discovered after we released 0.9.0.
 
 ---
 
-## v0.9.0 - 0.9.0 Preview Release "Undulata" {#v090}
+## v0.9.0 - 0.9.0 Preview Release "Undulata" <a id="v090"></a>
 
 *Released on 2023-09-26*
 
@@ -5240,7 +5240,7 @@ Note: Again, this release introduces a backwards-incompatible change to the on-d
 
 ---
 
-## v0.8.1 - 0.8.1 Bugfix Release {#v081}
+## v0.8.1 - 0.8.1 Bugfix Release <a id="v081"></a>
 
 *Released on 2023-06-13*
 
@@ -5364,7 +5364,7 @@ This is a bug fix release for various issues discovered after we released 0.8.0.
 
 ---
 
-## v0.8.0 - 0.8.0 Preview Release "Fulvigula" {#v080}
+## v0.8.0 - 0.8.0 Preview Release "Fulvigula" <a id="v080"></a>
 
 *Released on 2023-05-17*
 
@@ -5821,7 +5821,7 @@ Note: Again, this release introduces a backwards-incompatible change to the on-d
 
 ---
 
-## v0.7.1 - 0.7.1 Bugfix Release {#v071}
+## v0.7.1 - 0.7.1 Bugfix Release <a id="v071"></a>
 
 *Released on 2023-02-27*
 
@@ -5931,7 +5931,7 @@ This is a bug fix release for various issues discovered after we released 0.7.0.
 
 ---
 
-## v0.7.0 - 0.7.0 Preview Release "Labradorius" {#v070}
+## v0.7.0 - 0.7.0 Preview Release "Labradorius" <a id="v070"></a>
 
 *Released on 2023-02-13*
 
@@ -6243,7 +6243,7 @@ Note: Again, this release introduces a backwards-incompatible change to the on-d
 
 ---
 
-## v0.6.1 - 0.6.1 Bugfix Release {#v061}
+## v0.6.1 - 0.6.1 Bugfix Release <a id="v061"></a>
 
 *Released on 2022-12-06*
 
@@ -6310,7 +6310,7 @@ This is a bug fix release for various issues discovered after we released 0.6.0.
 
 ---
 
-## v0.6.0 - 0.6.0 Preview Release "Oxyura" {#v060}
+## v0.6.0 - 0.6.0 Preview Release "Oxyura" <a id="v060"></a>
 
 *Released on 2022-11-14*
 
@@ -6595,7 +6595,7 @@ Note: Again, this release introduces a backwards-incompatible change to the on-d
 
 ---
 
-## v0.5.1 - 0.5.1 Bugfix Release {#v051}
+## v0.5.1 - 0.5.1 Bugfix Release <a id="v051"></a>
 
 *Released on 2022-09-19*
 
@@ -6664,7 +6664,7 @@ This is a bug fix release for various issues discovered after we released 0.5.0.
 
 ---
 
-## v0.5.0 - 0.5.0 Preview Release "Pulchellus" {#v050}
+## v0.5.0 - 0.5.0 Preview Release "Pulchellus" <a id="v050"></a>
 
 *Released on 2022-09-05*
 
@@ -6935,7 +6935,7 @@ Below a list of changes in this release
 
 ---
 
-## v0.4.0 - 0.4.0 Preview Release "Ferruginea" {#v040}
+## v0.4.0 - 0.4.0 Preview Release "Ferruginea" <a id="v040"></a>
 
 *Released on 2022-06-20*
 
@@ -7131,7 +7131,7 @@ Below a list of changes in this release
 
 ---
 
-## v0.3.4 - 0.3.4 Bugfix Release {#v034}
+## v0.3.4 - 0.3.4 Bugfix Release <a id="v034"></a>
 
 *Released on 2022-04-25*
 
@@ -7143,7 +7143,7 @@ Note: We are going to switch to a new versioning scheme, so the next proper rele
 
 ---
 
-## v0.3.3 - 0.3.3 Preview Release "Sansaniensis" {#v033}
+## v0.3.3 - 0.3.3 Preview Release "Sansaniensis" <a id="v033"></a>
 
 *Released on 2022-04-11*
 
@@ -7314,7 +7314,7 @@ Below a list of changes in this release
 
 ---
 
-## v0.3.2 - 0.3.2 Preview Release "Gibberifrons" {#v032}
+## v0.3.2 - 0.3.2 Preview Release "Gibberifrons" <a id="v032"></a>
 
 *Released on 2022-02-07*
 
@@ -7512,7 +7512,7 @@ Below a list of changes in this release
 
 ---
 
-## v0.3.1 - 0.3.1 Preview Release "Spectabilis" {#v031}
+## v0.3.1 - 0.3.1 Preview Release "Spectabilis" <a id="v031"></a>
 
 *Released on 2021-11-16*
 
@@ -7621,7 +7621,7 @@ Below a list of changes in this release
 
 ---
 
-## v0.3.0 - 0.3.0 Preview Release "Gracilis" {#v030}
+## v0.3.0 - 0.3.0 Preview Release "Gracilis" <a id="v030"></a>
 
 *Released on 2021-10-06*
 
@@ -7686,7 +7686,7 @@ This release contains a novel join method, the  #1959: Perfect Hash Join. Otherw
 
 ---
 
-## v0.2.9 - 0.2.9 Preview Release "Platyrhynchos" {#v029}
+## v0.2.9 - 0.2.9 Preview Release "Platyrhynchos" <a id="v029"></a>
 
 *Released on 2021-09-06*
 
@@ -7743,7 +7743,7 @@ ODBC Client
 
 ---
 
-## v0.2.8 - 0.2.8 Preview Release "Ceruttii" {#v028}
+## v0.2.8 - 0.2.8 Preview Release "Ceruttii" <a id="v028"></a>
 
 *Released on 2021-08-02*
 
@@ -7777,7 +7777,7 @@ Note: Again, this release introduces a backwards-incompatible change to the on-d
 
 ---
 
-## v0.2.7 - 0.2.7 Preview Release "Mollissima" {#v027}
+## v0.2.7 - 0.2.7 Preview Release "Mollissima" <a id="v027"></a>
 
 *Released on 2021-06-14*
 
@@ -7818,7 +7818,7 @@ Engine
 
 ---
 
-## v0.2.6 - 0.2.6 Preview Release "Jamaicensis" {#v026}
+## v0.2.6 - 0.2.6 Preview Release "Jamaicensis" <a id="v026"></a>
 
 *Released on 2021-05-08*
 
@@ -7861,7 +7861,7 @@ APIs
 
 ---
 
-## v0.2.5 - 0.2.5 Preview Release "Falcata" {#v025}
+## v0.2.5 - 0.2.5 Preview Release "Falcata" <a id="v025"></a>
 
 *Released on 2021-03-10*
 
@@ -7896,7 +7896,7 @@ APIs:
 
 ---
 
-## v0.2.4 - 0.2.4 Preview Release "Jubata" {#v024}
+## v0.2.4 - 0.2.4 Preview Release "Jubata" <a id="v024"></a>
 
 *Released on 2021-02-02*
 
@@ -7934,7 +7934,7 @@ Parquet
 
 ---
 
-## v0.2.3 - 0.2.3 Preview Release "Serrator" {#v023}
+## v0.2.3 - 0.2.3 Preview Release "Serrator" <a id="v023"></a>
 
 *Released on 2020-12-03*
 
@@ -7972,7 +7972,7 @@ Parquet Reader:
 
 ---
 
-## v0.2.2 - 0.2.2 Preview Release "Clypeata" {#v022}
+## v0.2.2 - 0.2.2 Preview Release "Clypeata" <a id="v022"></a>
 
 *Released on 2020-11-01*
 
@@ -8013,7 +8013,7 @@ Client
 
 ---
 
-## v0.2.1 - 0.2.1 Preview Release {#v021}
+## v0.2.1 - 0.2.1 Preview Release <a id="v021"></a>
 
 *Released on 2020-08-29*
 
@@ -8037,7 +8037,7 @@ SQL
 
 ---
 
-## v0.2.0 - 0.2.0 Preview Release {#v020}
+## v0.2.0 - 0.2.0 Preview Release <a id="v020"></a>
 
 *Released on 2020-07-23*
 
@@ -8058,7 +8058,7 @@ Clients:
 
 ---
 
-## v0.1.9 - 0.1.9 Preview Release {#v019}
+## v0.1.9 - 0.1.9 Preview Release <a id="v019"></a>
 
 *Released on 2020-06-19*
 
@@ -8079,7 +8079,7 @@ Clients
 
 ---
 
-## v0.1.8 - 0.1.8 Preview Release {#v018}
+## v0.1.8 - 0.1.8 Preview Release <a id="v018"></a>
 
 *Released on 2020-05-29*
 
@@ -8098,7 +8098,7 @@ Clients
 
 ---
 
-## v0.1.7 - 0.1.7 Preview Release {#v017}
+## v0.1.7 - 0.1.7 Preview Release <a id="v017"></a>
 
 *Released on 2020-05-04*
 
@@ -8130,7 +8130,7 @@ Clients
 
 ---
 
-## v0.1.6 - 0.1.6 Preview Release {#v016}
+## v0.1.6 - 0.1.6 Preview Release <a id="v016"></a>
 
 *Released on 2020-04-05*
 
@@ -8165,7 +8165,7 @@ R client
 
 ---
 
-## v0.1.5 - 0.1.5 Preview Release {#v015}
+## v0.1.5 - 0.1.5 Preview Release <a id="v015"></a>
 
 *Released on 2020-03-02*
 
@@ -8193,7 +8193,7 @@ Major changes:
 
 ---
 
-## v0.1.3 - 0.1.3 Preview Release {#v013}
+## v0.1.3 - 0.1.3 Preview Release <a id="v013"></a>
 
 *Released on 2020-02-03*
 
@@ -8211,7 +8211,7 @@ Major changes:
 
 ---
 
-## v0.1.2 - 0.1.2 Preview Release {#v012}
+## v0.1.2 - 0.1.2 Preview Release <a id="v012"></a>
 
 *Released on 2020-01-06*
 
@@ -8223,7 +8223,7 @@ http://download.duckdb.org/rev/6fcb5ef8e91dcb3c9b2c4ca86dab3b1037446b24/
 
 ---
 
-## v0.1.1 - 0.1.1 Preview Release {#v011}
+## v0.1.1 - 0.1.1 Preview Release <a id="v011"></a>
 
 *Released on 2019-09-24*
 
@@ -8235,7 +8235,7 @@ http://download.duckdb.org/rev/2e51e9bae7699853420851d3d2237f232fc2a9a8/
 
 ---
 
-## v0.1.0 - 0.1.0 Preview Release {#v010}
+## v0.1.0 - 0.1.0 Preview Release <a id="v010"></a>
 
 *Released on 2019-06-27*
 
