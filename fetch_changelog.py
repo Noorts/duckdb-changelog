@@ -192,6 +192,11 @@ def format_changelog_entry(release_info):
     if description:
         # Clean up the description (remove extra whitespace, etc.)
         description = description.strip()
+        # Remove trailing whitespace from each line
+        lines = description.split('\n')
+        lines = [line.rstrip() for line in lines]
+        description = '\n'.join(lines)
+
         # Convert @author mentions to GitHub profile links
         description = convert_author_mentions(description)
         changelog_entry += description
