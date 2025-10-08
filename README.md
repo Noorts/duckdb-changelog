@@ -9,6 +9,7 @@ Updated automatically as new DuckDB versions are released.
 
 # Table of Contents
 
+- [v1.4.1 - v1.4.1 Bugfix Release](#v141)
 - [v1.4.0 - DuckDB 1.4.0 "Andium"](#v140)
 - [v1.3.2 - v1.3.2 Bugfix Release](#v132)
 - [v1.3.1 - v1.3.1 Bugfix Release](#v131)
@@ -61,6 +62,80 @@ Updated automatically as new DuckDB versions are released.
 - [v0.1.2 - 0.1.2 Preview Release](#v012)
 - [v0.1.1 - 0.1.1 Preview Release](#v011)
 - [v0.1.0 - 0.1.0 Preview Release](#v010)
+
+---
+
+# v1.4.1 - v1.4.1 Bugfix Release <a id="v141"></a>
+
+*Released on 2025-10-07*
+
+[View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.4.1)
+
+This is a bug fix release for various issues discovered after we released 1.4.0.
+
+## What's Changed
+* Fix attach to right DB when using DuckLake by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/19011
+* set default value of MAIN_BRANCH_VERSIONING to false by [@c-herrewijn](https://github.com/c-herrewijn) in https://github.com/duckdb/duckdb/pull/19014
+* ComplexJSON: parse all valid JSON correctly by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19024
+* Issue [#19016](https://github.com/duckdb/duckdb/issues/19016): ICU Offset Parsing by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/19029
+* Throw if we detect a quoted new line with the null padding set in parallel mode by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/19012
+* Bump iceberg & ducklake by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19037
+* Build Fix: `unordered_map<enum class` is not supported in all compilers, use `map<` instead by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19046
+* Disable emitting versioned libraries by default by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19047
+* Re-add aliased settings to duckdb_settings() view, and some fixes for aliased settings by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19050
+* Fix threading issues in metadata manager, and expand concurrent attach / detach fuzz test by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19054
+* Correctly re-align all child column segments of the ColumnData on Deserialize, and add logging to checkpoints by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19055
+* [unittest] Fixes so that '{BASE_TEST_NAME}' can be used within --on-new-connection by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19056
+* add a bunch of expected error messages to old macro tests and fix iss… by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19042
+* Always execute cast and try_cast if they are not invertible by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/19010
+* Switching core extension upload to dedicated credentials by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19061
+* Include BeginQuery in latency metric by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19064
+* [Dev] Bit of code cleanup in (parquet) ColumnWriter by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19063
+* Add config: one_schema_per_test.json by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19059
+* Change bucket name for core extensions by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19083
+* Moved test data into testing dir by [@NiclasHaderer](https://github.com/NiclasHaderer) in https://github.com/duckdb/duckdb/pull/19102
+* Bump httpfs by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19104
+* Fix example syntax in `variant_typeof()` function by [@krlmlr](https://github.com/krlmlr) in https://github.com/duckdb/duckdb/pull/18977
+* Avoid throwing on unset extension setting by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19117
+* Fix internal issue 5975 by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19101
+* Properly initialize `StringStats` in Parquet reader by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19139
+* Remove HTTPFS tests and setup scripts by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19140
+* Validate JSON in Parquet reader by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19143
+* Fix bug in merge into when condition is in parenthesis by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/19137
+* Allow implicit casts from `JSON[]` to `JSON` again by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19141
+* [ci] Change logic for saving caches: Github variable that decides what gets cached by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19150
+* Fix handling of quotes in ToString() of search_path in current_setting by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19162
+* Delay throwing `NotImplementedException` in `ExpressionBinder` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19153
+* Issue [#18303](https://github.com/duckdb/duckdb/issues/18303): AsOf NLJ Nulls by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/19173
+* HTTPUtil: response might be null, perform check by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19179
+* Handle malformed schema index in Parquet reader by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19191
+* ATTACH IF NOT EXISTS: avoid looping waiting for DETACH to finish, wait only for an ATTACH operation to finish by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19193
+* Implement duckdb_connection_count table function by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19187
+* Disable ALP for non-default block sizes by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19197
+* Check for unresolved parameters when binding `CREATE MACRO ... AS TABLE` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19196
+* https://duckdb-blobs.s3.amazonaws.com -> https://blobs.duckdb.org by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19206
+* [chore] Attempt at restoring workflow for MinGW Static libs  by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19205
+* Simple no default region return 301 response by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/19087
+* [Fix] Correctly reset the gate status during ART merging by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19204
+* build spatial extension for mingw by [@c-herrewijn](https://github.com/c-herrewijn) in https://github.com/duckdb/duckdb/pull/19207
+* Fixup templated version of TryGetSecretKeyOrSetting by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19218
+* Bump: delta by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19220
+* Autoloading helper file system: allow either autoloading or proper errors in more file operations by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19198
+* Eargerly destroy sort buffers in Window by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19224
+* [Transaction] Delete and drop of a table can now happen in the same transaction without error by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/18918
+* PRAGMA's MissingEntry: Suggest CALL might be an option by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/18815
+* Bump: aws, ducklake, iceberg by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19228
+* Issue 18603 by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/19227
+* Bump DuckLake to latest of V1.4 by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/19237
+* Bump mysql and sqlite by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/19240
+* Don't write parquet-native `GEOMETRY` by default, add option to control GeoParquet version by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19244
+* When executing a relation, generate a query to set if it is not a query relation by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19234
+* add support for writing geoparquet with v2 metadata too by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19246
+* Bump: iceberg by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19250
+* Bump: avro, httpfs by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19248
+* bump duckdb-azure ref for 1.4.1 by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/19275
+
+**Full Changelog**: https://github.com/duckdb/duckdb/compare/v1.4.0...v1.4.1
 
 ---
 
