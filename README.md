@@ -9,6 +9,7 @@ Updated automatically as new DuckDB versions are released.
 
 # Table of Contents
 
+- [v1.4.2 - v1.4.2 Bugfix Release](#v142)
 - [v1.4.1 - v1.4.1 Bugfix Release](#v141)
 - [v1.4.0 - DuckDB 1.4.0 "Andium"](#v140)
 - [v1.3.2 - v1.3.2 Bugfix Release](#v132)
@@ -62,6 +63,111 @@ Updated automatically as new DuckDB versions are released.
 - [v0.1.2 - 0.1.2 Preview Release](#v012)
 - [v0.1.1 - 0.1.1 Preview Release](#v011)
 - [v0.1.0 - 0.1.0 Preview Release](#v010)
+
+---
+
+# v1.4.2 - v1.4.2 Bugfix Release <a id="v142"></a>
+
+*Released on 2025-11-12*
+
+[View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.4.2)
+
+This is a bug fix release for various issues discovered after we released 1.4.1. PR [#19716](https://github.com/duckdb/duckdb/issues/19716) addresses the issues raised in [CVE-2025-64429]( https://github.com/duckdb/duckdb/security/advisories/GHSA-vmp8-hg63-v2hp). Users of the DuckDB encryption feature are encouraged to update.
+
+
+## What's Changed
+* bump duckdb-azure ref for 1.4.1 by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/19275
+* Fix regex optimization to remove flags when converting to contains by [@mlafeldt](https://github.com/mlafeldt) in https://github.com/duckdb/duckdb/pull/19290
+* feat: Fix length of sort keys by [@krlmlr](https://github.com/krlmlr) in https://github.com/duckdb/duckdb/pull/19260
+* Pass lambda bindings to next binder by [@Dtenwolde](https://github.com/Dtenwolde) in https://github.com/duckdb/duckdb/pull/19144
+* bump Julia to v1.4.1 by [@c-herrewijn](https://github.com/c-herrewijn) in https://github.com/duckdb/duckdb/pull/19306
+* Use cross-compilation for static libs on OSX by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19304
+* Allow multiple read-only attaches to the same database across database instances by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19319
+* hugeint_t fixes by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19318
+* Use CMAKE_<LANG>_COMPILER_LAUNCHER by [@evertlammerts](https://github.com/evertlammerts) in https://github.com/duckdb/duckdb/pull/19326
+* Add settings field to test config by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19330
+* Keep track of which database managers have which databases attached in the DatabaseFilePathManager by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19338
+* Bugfixes by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19329
+* skip several ci jobs on prs that only bump extensions by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19249
+* [C API] bind_value out of range fix by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19348
+* Destroy TaskNotifier prior to calling FinishTask by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19373
+* Remove zip bombs by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19380
+* Avoid calling shared_from_this() and instead use the passed in ClientContext in buffered data by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19379
+* add test tag support [vfs integration tests p1] by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/19331
+* Throw if non-`VARCHAR` key is passed to `json_object` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19365
+* BUGFIX: Silent failure to write row groups with large lists by [@J-Meyers](https://github.com/J-Meyers) in https://github.com/duckdb/duckdb/pull/19376
+* Fixes for CTE (de)serialization compatibility with older versions by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19393
+* Fix [#18139](https://github.com/duckdb/duckdb/issues/18139): correctly initialize flush size in MemoryStream, and re-use writer states by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19398
+* Fixup Kalman fiter: bound it's (0, scale_factor), not (0, 1) by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19395
+* Fix StringDecompress for hugeint_t values by [@ywelsch](https://github.com/ywelsch) in https://github.com/duckdb/duckdb/pull/19403
+* Fix [#19211](https://github.com/duckdb/duckdb/issues/19211): make INSERT OR IGNORE correctly handle multiple constraints by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19409
+* Issue [#19386](https://github.com/duckdb/duckdb/issues/19386): ICU TZDEFAULT by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/19413
+* Fix issue in MetadataManager triggered when doing concurrent reads while checkpointing, and rework concurrent attach / detach test by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19424
+* ADBC fix: escape schema, table and column identifiers by [@evertlammerts](https://github.com/evertlammerts) in https://github.com/duckdb/duckdb/pull/19407
+* v1.4: Only serialize CTE nodes when MATERIALIZED is specified by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19420
+* Add forwards compatibility tests to CI by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19432
+* Internal #6168: Unsupported Correlated Binds  by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/19431
+* Don't pull up filters through `DISTINCT ON` and make `enum` casts in Parquet safe (bugfixes) by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19406
+* Get table bindings for all operators under a logical get if the logical get function is an unnest by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/19467
+* WASM [#1897](https://github.com/duckdb/duckdb/issues/1897): UTC Offset Support by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/19464
+* Add tests for nested lambda bindings by [@Dtenwolde](https://github.com/Dtenwolde) in https://github.com/duckdb/duckdb/pull/19453
+* [Compression] Fix issue in ZSTD decompression related to mis-interpreted segment offsets by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19475
+* vfs integration tests p2 - update (env) vars and tests by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/19428
+* CI Fix: clear benchmark cache between runs by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19508
+* Make `DatabaseInstance::log_manager` a `unique_ptr` by [@Flogex](https://github.com/Flogex) in https://github.com/duckdb/duckdb/pull/19471
+* Support non-standard NULL in Parquet again by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19523
+* Bump: inet by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19526
+* Bump multiple extensions by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19522
+* add upcoming patch release to internal versions by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19525
+* Add test that either 'latest' or 'vX.Y.Z' are supported STORAGE_VERSIONs by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19527
+* Moving staging to cf and uploading to install bucket by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19539
+* Creating separate OSX cli binaries for each arch by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19538
+* [Dev] Disable the use of `ZSTD` if the block_manager is the `InMemoryBlockManager` by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19543
+* Follow up to staging move by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19551
+* Bugfixes: Parquet JSON+DELTA_LENGTH_BYTE_ARRAY and sorting iterator by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19556
+* [ported from main] Fix bug initializing std::vector for column names by [@evertlammerts](https://github.com/evertlammerts) in https://github.com/duckdb/duckdb/pull/19555
+* Disable jemalloc on BSD by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19560
+* Fix race condition between `Append` and `Scan` by [@Captain32](https://github.com/Captain32) in https://github.com/duckdb/duckdb/pull/19571
+* Release relevant tests to still be run on all builds by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19559
+* fix inconsistent behavior in remote read_file/blob, and prevent union… by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19531
+* [v1.4-andium] Add Profiler output to logger interface by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19572
+* Fix edge case in uncompressed validity scan with offset and fix off-by-one in ArrayColumnData::Select by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19567
+* Skip compiling remote optimizer test when TSAN Is enabled by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19590
+* Wal index deletes by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/19477
+* add vortex external extension by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19580
+* Avoid eagerly resolving the next on-disk pointer in the MetadataReader, as that pointer might not always be valid by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19588
+* [DevEx] Improve error message when FROM clause is omitted by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/18995
+* bump iceberg by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/19618
+* Improve error message around compression type deprecation/availability checks by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19619
+* Increase cast-cost of old-style implicit cast to string by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19621
+* Try to prevent overshooting of `FILE_SIZE_BYTES` by pre-emptively increasing bytes written in Parquet writer by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19622
+* Bump: spatial by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19620
+* Detect invalid merge into action and throw exception by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19636
+* Fix [#19455](https://github.com/duckdb/duckdb/issues/19455): correctly extract root table in merge into when running ajoin that contains single-sided predicates that are transformed into filters by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19637
+* Remove `FlushAll` from `DETACH` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19644
+* Bump MySQL scanner by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/19643
+* Enable running all extensions tests as part of the build step by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19631
+* Always remember extra_metadata_blocks when checkpointing by [@ywelsch](https://github.com/ywelsch) in https://github.com/duckdb/duckdb/pull/19639
+* duckdb_logs_parsed to do case-insensitive matching by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19669
+* Categorize ParseLogMessage as CAN_THROW_RUNTIME_ERROR by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19672
+* Fixup linking for LLVM by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19668
+* Log total probe matches in hash join by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19683
+* Fix InsertRelation on attached database by [@evertlammerts](https://github.com/evertlammerts) in https://github.com/duckdb/duckdb/pull/19583
+* Add request timing to HTTP log by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19691
+* Add missing query location to blob cast by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19689
+* Bump: aws, ducklake, httpfs, iceberg by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19654
+* Bump: delta, ducklake, httpfs by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19715
+* Fix [#19355](https://github.com/duckdb/duckdb/issues/19355): correctly resolve subquery in MERGE INTO action condition by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19720
+* Fix [#19700](https://github.com/duckdb/duckdb/issues/19700): correctly sort output selection vector in nested selection operations by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19718
+* Bump httpfs and resume testing on Windows by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19714
+* [Dev] Fix assertion failure for empty ColumnData serialization by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19713
+* Bump the Postgres scanner extension by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19730
+* Add explicit Initialize(HTTPParam&) method to HTTPClient by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19723
+* Logs to be case-insensitive also at enable_logging callsite by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19734
+* Fix CVE https://github.com/duckdb/duckdb/security/advisories/GHSA-vmp8-hg63-v2hp crypto issues by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19716
+
+
+**Full Changelog**: https://github.com/duckdb/duckdb/compare/v1.4.1...v1.4.2
 
 ---
 
