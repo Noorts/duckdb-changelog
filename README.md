@@ -9,6 +9,7 @@ Updated automatically as new DuckDB versions are released.
 
 # Table of Contents
 
+- [v1.4.3 - v1.4.3 Bugfix Release](#v143)
 - [v1.4.2 - v1.4.2 Bugfix Release](#v142)
 - [v1.4.1 - v1.4.1 Bugfix Release](#v141)
 - [v1.4.0 - DuckDB 1.4.0 "Andium"](#v140)
@@ -63,6 +64,90 @@ Updated automatically as new DuckDB versions are released.
 - [v0.1.2 - 0.1.2 Preview Release](#v012)
 - [v0.1.1 - 0.1.1 Preview Release](#v011)
 - [v0.1.0 - 0.1.0 Preview Release](#v010)
+
+---
+
+# v1.4.3 - v1.4.3 Bugfix Release <a id="v143"></a>
+
+*Released on 2025-12-09*
+
+[View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.4.3)
+
+This is a bug fix release for various issues discovered after we released 1.4.2.
+
+## What's Changed
+* implement proper equals for table functions by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19722
+* Fix behavior for HAVING clause without a GROUP BY by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19739
+* Remove httpfs patches and bump by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19763
+* Correctly use a lock when accessing the EncryptionKeyManager by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19772
+* Bump iceberg to now default available extension by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19764
+* Extract all column bindings of json each function by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/19766
+* constraint violation bug fix by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/19776
+* Avoid binding macro arguments for untyped macros by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/19779
+* It should probably be `${EXTENSION_CONFIG_BUILD}` instead of `EXTENSION_CONFIG_BUILD` by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/19694
+* Fix [#19575](https://github.com/duckdb/duckdb/issues/19575): Fix illegal utf8 character by [@flashmouse](https://github.com/flashmouse) in https://github.com/duckdb/duckdb/pull/19699
+* chore: bump vortex to 0.56.0 by [@0ax1](https://github.com/0ax1) in https://github.com/duckdb/duckdb/pull/19815
+* PositionalScan: handle also HAVE_MORE_OUTPUT + empty chunk via iteration by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19824
+* AttachDatabase: first set whether file is remote, then do the rest by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19826
+* Add CacheBehavior::AUTOMATIC to DBInstanceCache that automatically does the right thing™ by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19841
+* Reuse metadata even in the presence of deletes by [@ywelsch](https://github.com/ywelsch) in https://github.com/duckdb/duckdb/pull/19823
+* DuckIndexScanState::TableScanFunc, split into 2 explicit phases by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19838
+* Bump httpfs and iceberg by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/19859
+* Keep cte_root alive while binding materialized CTEs in MERGE INTO children by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19863
+* CI Cleanup ([#19840](https://github.com/duckdb/duckdb/issues/19840)) by [@yan-alex](https://github.com/yan-alex) in https://github.com/duckdb/duckdb/pull/19857
+* Fix [#19517](https://github.com/duckdb/duckdb/issues/19517): preserve relation name for table-qualified star LIKE expression by [@henry8128](https://github.com/henry8128) in https://github.com/duckdb/duckdb/pull/19887
+* avoid underflow/"inf" loop while reporting unittest summary (backport… by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/19900
+* Fixes incorrect handing of APPROX_QUANTILE TIME by [@Damon07](https://github.com/Damon07) in https://github.com/duckdb/duckdb/pull/19891
+* Add v1.4.3 to Storage Version by [@maiadegraaf](https://github.com/maiadegraaf) in https://github.com/duckdb/duckdb/pull/19907
+* clean up tmp files while building extensions by [@c-herrewijn](https://github.com/c-herrewijn) in https://github.com/duckdb/duckdb/pull/19908
+* Bump: ducklake, mysql_scanner by [@maiadegraaf](https://github.com/maiadegraaf) in https://github.com/duckdb/duckdb/pull/19910
+* remove large limit optimization whenever there is a filter by [@guillesd](https://github.com/guillesd) in https://github.com/duckdb/duckdb/pull/19911
+* free disk space in Upload Extensions job by [@c-herrewijn](https://github.com/c-herrewijn) in https://github.com/duckdb/duckdb/pull/19912
+* [Compression] Prevent overriding `COMPRESSION_EMPTY` with `COMPRESSION_CONSTANT` by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19913
+* Make `make tidy-check-diff` compare against base branch, instead of always comparing against `origin/main` by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19917
+* More testing for appender and attach-detach by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19708
+* Script to release a extension manually by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/19881
+* Assert that result types match with column data collection when fetching data by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/19750
+* No longer auto-enable profiling on DEBUG mode by [@maiadegraaf](https://github.com/maiadegraaf) in https://github.com/duckdb/duckdb/pull/19931
+* Fix optimizer incorrectly remove ORDER BY clause from aggregates by [@tianjq16](https://github.com/tianjq16) in https://github.com/duckdb/duckdb/pull/19925
+* Backport revert append fixes by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/19941
+* Bump: spatial by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/19943
+* Issue [#19916](https://github.com/duckdb/duckdb/issues/19916): WASM Time Zones by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/19918
+* Fix correlated column binding in ConstantBinder by [@d-justen](https://github.com/d-justen) in https://github.com/duckdb/duckdb/pull/19945
+* [chore] Increase slow threshold by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19965
+* [Parquet] Fix prepared copy option parameter by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19966
+* [TestConfig] Fix `verify_fetch_row` config, reduce duplication in `skip_tests` by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/19967
+* remove sha from artifacts by [@c-herrewijn](https://github.com/c-herrewijn) in https://github.com/duckdb/duckdb/pull/19957
+* Unbound index binding with context by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/19953
+* [Fix] Bug in `FetchRow` after update on indexed table with `dict_fsst` compression by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/19970
+* Null assertion on denormalized_table argument by [@Dtenwolde](https://github.com/Dtenwolde) in https://github.com/duckdb/duckdb/pull/19947
+* [Art][Wal]Unbound index allocations by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/19901
+* No sampling over 281TB by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/19978
+* Take in consideration if the sniffer used unstrictness while selecting candidates by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/20005
+* [CSV] Avoid throwing unnecessary errors on strict mode by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/20007
+* [Compression] Fix an issue with NULL updates to a column compressed with DICT_FSST by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/20009
+* Bump: delta, ducklake, iceberg by [@maiadegraaf](https://github.com/maiadegraaf) in https://github.com/duckdb/duckdb/pull/20012
+* add unity_catalog, update delta by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/20019
+* Bump spatial by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/20020
+* Retag [#19821](https://github.com/duckdb/duckdb/issues/19821) to v1.4 - Use PLAIN_DICTIONARY for Parquet version 1 by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/20024
+* Fix INSERT OR REPLACE BY NAME with partial columns([#19845](https://github.com/duckdb/duckdb/issues/19845)) by [@henry8128](https://github.com/henry8128) in https://github.com/duckdb/duckdb/pull/19989
+* Bump MySQL scanner by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/20025
+* Windows must sample less by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/20018
+* Issue [#20015](https://github.com/duckdb/duckdb/issues/20015): Streaming Window Sequence by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/20027
+* bump iceberg by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/20032
+* Fix [#20014](https://github.com/duckdb/duckdb/issues/20014): correctly use numeric_limits<T>::min for NumericLimits::Min so that stats are initialized to -infinity for floating points by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/20039
+* Enable windows_arm64 arch for main extensions by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/20004
+* Fix mark join decorrelation by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/20033
+* propagate gate status in Node4::DeleteChild by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/20044
+* Bump: httpfs by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/20036
+* Bump ducklake by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/20054
+* bump azure to v1.4.3 by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/20057
+* Bump extensions by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/20055
+* Fix unnecessary dependent join rewrite by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/20048
+* Version tag for local files for robust external file cache validation by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/20058
+* backport runner cleanup action by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/20085
+
+**Full Changelog**: https://github.com/duckdb/duckdb/compare/v1.4.2...v1.4.3
 
 ---
 
