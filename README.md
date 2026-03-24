@@ -9,6 +9,7 @@ Updated automatically as new DuckDB versions are released.
 
 # Table of Contents
 
+- [v1.5.1 - DuckDB v1.5.1 Bugfix Release](#v151)
 - [v1.5.0 - DuckDB v1.5.0 "Variegata"](#v150)
 - [v1.4.4 - v1.4.4 Bugfix Release](#v144)
 - [v1.4.3 - v1.4.3 Bugfix Release](#v143)
@@ -66,6 +67,132 @@ Updated automatically as new DuckDB versions are released.
 - [v0.1.2 - 0.1.2 Preview Release](#v012)
 - [v0.1.1 - 0.1.1 Preview Release](#v011)
 - [v0.1.0 - 0.1.0 Preview Release](#v010)
+
+---
+
+# v1.5.1 - DuckDB v1.5.1 Bugfix Release <a id="v151"></a>
+
+*Released on 2026-03-23*
+
+[View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.5.1)
+
+This is a bug fix release for various issues discovered after we released v1.5.0.
+
+Please also refer to the announcement blog post: https://duckdb.org/2026/03/23/announcing-duckdb-151
+
+## What's Changed
+* [Extensions] Preserve `require` order in `InterpretedBenchmark` by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/21214
+* CLI: Make help entry uppercase by [@szarnyasg](https://github.com/szarnyasg) in https://github.com/duckdb/duckdb/pull/21224
+* Restore view's bind_state when binding fails by [@jeewonhh](https://github.com/jeewonhh) in https://github.com/duckdb/duckdb/pull/21193
+* [Regression v1.5] Fix INTERNAL Error in UnnestRewriter for deeply nested struct UNNEST by [@guizmaii](https://github.com/guizmaii) in https://github.com/duckdb/duckdb/pull/21209
+* fix(storage): prevent TrimFreeBlocks from zeroing concurrently alloca… by [@llersch](https://github.com/llersch) in https://github.com/duckdb/duckdb/pull/21146
+* Windows shell: UTF-8 mode when writing to pager by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21202
+* [Dev] Add internal exception for misuse of `MultiFileReader` method by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/21046
+* Before loading libraries in TryAutoLoadExtension check AutoloadKnownExtensions Setting by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/21051
+* fix: buffer overread in Arrow dictionary conversion with NULLs - fixes crash. by [@rustyconover](https://github.com/rustyconover) in https://github.com/duckdb/duckdb/pull/21083
+* Avoid misleading GetRequestInfo constructor that takes endpoint + path by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21151
+* Enable column pruning for `MATERIALIZED` CTEs by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21169
+* Add framework to test two DuckDB versions by [@Y--](https://github.com/Y--) in https://github.com/duckdb/duckdb/pull/21184
+* Internal #7691: 2026a Time Zones by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/21204
+* Fix DuckFuzz [#4325](https://github.com/duckdb/duckdb/issues/4325) by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21215
+* Fix decorrelation delim index bug by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21233
+* Fix two minor shell bugs: Avoid mutating rendered strings and avoid p… by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21234
+* Fix wrong cast in RecursiveDependentJoinPlanner by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21235
+* Use atomic load in bloom filter look-up by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21238
+* Move BWC tests to nightly for now by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21266
+* Internal #7740: AsOf Tidy Fix by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/21255
+* Re-add accidentally removed -jsonlines command line parameter by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21263
+* Switch MAIN_BRANCH_VERSIONING to False for v1.5-variegata branch by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21239
+* Lazy call `mmap` in `BlockAllocator` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/21276
+* Dynamically determine radix bits for external aggregation by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/21274
+* Avoid potential division by 0 in `PhysicalHashJoin::PrepareFinalize` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/21271
+* Do not use MSYS shell for MinGW builds by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21296
+* add structured Path objects, update joinpath: normalize, support url/… by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/21277
+* When stress testing FORCE_ASYNC, add the relevant error messages by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21267
+* Fix invalid JSON when casting from certain types by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/21280
+* Fix .open of Parquet files etc. in CLI by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/21269
+* Bump storage version to `v1.5.1` by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/21287
+* Implement line number reporting in errors for PEG parser by [@Dtenwolde](https://github.com/Dtenwolde) in https://github.com/duckdb/duckdb/pull/21157
+* Support new v1.5 syntax for PEG grammar by [@Dtenwolde](https://github.com/Dtenwolde) in https://github.com/duckdb/duckdb/pull/21172
+* [Fix] Memory error when transforming to `v1.0.0` ART storage by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/21270
+* Add missing expression traversal in `merge into` binding by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21283
+* Add UUID to settings cache by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21290
+* Fix Terminal::TryGetBackgroundColor when stdin is reading from a pipe but stdout is still writing to the terminal by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21288
+* Fix [#21248](https://github.com/duckdb/duckdb/issues/21248): correctly expand type count in CSV header detection by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21292
+* Add batch index support to parquet_metadata and friends to allow it to be executed in parallel also with order preservation by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21314
+* Make overriding HTTPUtil thread safe by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21210
+* Revert [#21067](https://github.com/duckdb/duckdb/issues/21067) - and fix WAL corruption issue through calling `MarkBlockAsCheckpointed` on WAL blocks by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21285
+* Fix sampling for UB in musl libc by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21318
+* TryGetCurrentSetting: Fixup paramater passing for FileOpenerInfo by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21301
+* Fix Row Group Reorderer Bug by [@d-justen](https://github.com/d-justen) in https://github.com/duckdb/duckdb/pull/21282
+* Windows shell: fix UTF-8 to UTF-16 conversion by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21319
+* Issue [#21244](https://github.com/duckdb/duckdb/issues/21244): AsOf Unordered LIMIT by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/21250
+* Throw error on incorrect use of `ParseExpressionList` by [@Dtenwolde](https://github.com/Dtenwolde) in https://github.com/duckdb/duckdb/pull/21306
+* Issue [#20481](https://github.com/duckdb/duckdb/issues/20481): Prepare Window Parameters by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/21323
+* CLI: Explicitly clean up shell state instead of letting static destructor order determine when it gets destroyed by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21315
+* Fixup 401bcf041f36f3abc39ecc6d50ba3dd336fc79d7: "When stress testing … by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21329
+* CLI: Make bail on error the default in more situations by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21344
+* Improve estimate when first Parquet file is almost empty, and get exact cardinality count when we are using union by name by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21345
+* Fix infinite recursion in FileOpener::TryGetCurrentSetting by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21356
+* fix argument check for .multiline and .singleline by [@jaywgraves](https://github.com/jaywgraves) in https://github.com/duckdb/duckdb/pull/21336
+* Windows shell: remove .utf8 dot command by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21343
+* When writing unsupported Parquet variant types to Parquet, try to convert them to INT64 by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21357
+* Use cached Parquet metadata to improve cardinality estimates over Parquet files by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21358
+* Parquet Reader: Allow merging of prefetch column ranges for columns that do not have table filters by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21373
+* In the parquet reader, if we are globbing over a directory, use file sizes from the glob to estimate cardinalities instead of relying only on the first parquet file by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21374
+* MbedTLS: Actually throw exception  by [@hannes](https://github.com/hannes) in https://github.com/duckdb/duckdb/pull/21365
+* Well-defined environment for MinGW builds by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21371
+* Fix [#21335](https://github.com/duckdb/duckdb/issues/21335): correctly add checkpoint and recovery WAL to allowed paths when launching an initial db with enable_external_access set to false by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21379
+* automate clangd/compile_commands.json gen via builds by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/21361
+* Parquet: Ignore optional filters when deciding whether or not to do a lazy fetch by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21383
+* parquet: avoid corrupting define buffers during skips by [@Mikubill](https://github.com/Mikubill) in https://github.com/duckdb/duckdb/pull/21298
+* CLI: Fix .tables rendering for large database names by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21389
+* Fix column pruning for CTEs by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21275
+* add test for [#21271](https://github.com/duckdb/duckdb/issues/21271) by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/21398
+* Grab correct row group id in ValidityColumnData::UpdateWithBase by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21397
+* Add lance extension by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21406
+* add lance for v1.5 by [@samansmink](https://github.com/samansmink) in https://github.com/duckdb/duckdb/pull/21111
+* Fix [#21289](https://github.com/duckdb/duckdb/issues/21289): correctly determine render width of UTF8 string with grapheme clusters by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21409
+* Avoid calling PushCollation in create_sort_key by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21412
+* Flush remaining operators in pipeline by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/21405
+* Correctly limit auto-detection in read_json for files that don't have string columns by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21411
+* Fix INSERT OR REPLACE updates on non-unique indexed columns by [@feichai0017](https://github.com/feichai0017) in https://github.com/duckdb/duckdb/pull/20962
+* fix(adbc): support concurrent statements on the same connection by [@eitsupi](https://github.com/eitsupi) in https://github.com/duckdb/duckdb/pull/21415
+* Fix invalid common subplan CTE reuse for issue [#21372](https://github.com/duckdb/duckdb/issues/21372) by [@feichai0017](https://github.com/feichai0017) in https://github.com/duckdb/duckdb/pull/21386
+* Use regular pushdown path for semi/anti/left delim joins by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21416
+* Predicate factoring by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/21418
+* Bump SQLite by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21414
+* Enable Row Group Pruner for NULLS_FIRST by [@d-justen](https://github.com/d-justen) in https://github.com/duckdb/duckdb/pull/21399
+* Read geoparquet file with null CRS. Fix [#21332](https://github.com/duckdb/duckdb/issues/21332) by [@philippechataignon](https://github.com/philippechataignon) in https://github.com/duckdb/duckdb/pull/21333
+* test/sql/join/test_hash_join_many_columns.test needs 64bit by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21432
+* Parquet Reader: initialize scan without holding the global lock in the multi file reader by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21439
+* bump spatial for v1.5.2 by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/21440
+* [vortex] Bump to d0b5bae4d907694e776c97b57de6edfb662c6c25 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21430
+* Fix stale update read during index removal by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/21427
+* Fix window elimination optimizer by [@kryonix](https://github.com/kryonix) in https://github.com/duckdb/duckdb/pull/21428
+* Avoid scanning struct validity when executing pushdown extract by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21421
+* Bump avro by [@taniabogatsch](https://github.com/taniabogatsch) in https://github.com/duckdb/duckdb/pull/21426
+* Add allowed_configs option for allow-listing configs when setting lock_configurations by [@hrl20](https://github.com/hrl20) in https://github.com/duckdb/duckdb/pull/20938
+* Fix minor typos in documentation and comments by [@Monstertov](https://github.com/Monstertov) in https://github.com/duckdb/duckdb/pull/21442
+* Fix parquet metadata cache invalidation in local file system by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21435
+* Bump ducklake by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21448
+* [httpfs] Bump to 7e86e7a5e5 and remove patches by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21437
+* verify_fetch_row.json + roaring seems to work as intended, restore by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21300
+* Refactor for multiple external extensions, and skip temporary for osx_amd64 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21450
+* bump iceberg by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/21453
+* Fix [#21436](https://github.com/duckdb/duckdb/issues/21436): correctly preserve spaces within unquoted struct values in pretty printing code by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21457
+* Bump Postgres and MySQL by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21433
+* Shell: use Unicode entry point on Windows by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/21472
+* Fix [#21459](https://github.com/duckdb/duckdb/issues/21459): detect when read_duckdb is used to read a non-DuckDB file and throw a descriptive error by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21460
+* Fix [#21367](https://github.com/duckdb/duckdb/issues/21367): Prevent throwing in WindowSelfJoinOptimizer when a logical plan cannot be copied, instead fallback to not running the optimization by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/21461
+* bump delta && unity in prep for v1.5.1 by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/21451
+* Adjust v1.5.0 for z/OS by [@DNikolaevAtRocket](https://github.com/DNikolaevAtRocket) in https://github.com/duckdb/duckdb/pull/21325
+* [vortex] Bump to 6ea8bd77fe8e6e814bde11b6981f934fa82ab961 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21462
+* Fix NULL dereference in TryGetValueFromStats ([#21477](https://github.com/duckdb/duckdb/issues/21477)) by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/21479
+* Bump spatial again by [@Maxxen](https://github.com/Maxxen) in https://github.com/duckdb/duckdb/pull/21485
+* Bump vcpkg-duckdb-ports baseline by [@yan-alex](https://github.com/yan-alex) in https://github.com/duckdb/duckdb/pull/21493
+
+**Full Changelog**: https://github.com/duckdb/duckdb/compare/v1.5.0...v1.5.1
 
 ---
 
