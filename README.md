@@ -9,6 +9,7 @@ Updated automatically as new DuckDB versions are released.
 
 # Table of Contents
 
+- [v1.5.5 - DuckDB v1.5.5 Bugfix Release](#v155)
 - [v1.5.4 - DuckDB v1.5.4 Bugfix Release](#v154)
 - [v1.4.5 - DuckDB v1.4.5 Bugfix Release](#v145)
 - [v1.5.3 - DuckDB v1.5.3 Bugfix Release](#v153)
@@ -74,6 +75,98 @@ Updated automatically as new DuckDB versions are released.
 
 ---
 
+# v1.5.5 - DuckDB v1.5.5 Bugfix Release <a id="v155"></a>
+
+*Released on 2026-07-22*
+
+[View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.5.5)
+
+This is a bug fix release for various issues discovered after we released v1.5.4.
+
+## What's Changed
+* backport the out-of-bounds security fixes made in [#23100](https://github.com/duckdb/duckdb/issues/23100) by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/23197
+* Remove checked_array_iterator from fmt dep (1.4) by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23261
+* Remove checked_array_iterator from fmt dep (1.4) by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/23239
+* [Dev] Add LLDB scripts to help with debugging by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/23297
+* Add support for test config extending by [@NiclasHaderer](https://github.com/NiclasHaderer) in https://github.com/duckdb/duckdb/pull/23145
+* bump iceberg again  by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/23311
+* Correctly get typed value stats for fully shredded variants by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/23325
+* bump unity to include backfill fix by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/23326
+* Add request body length to http logs by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/23316
+* Show transport errors in HTTP log by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/23327
+* Dispatch Rust nightly build by [@mlafeldt](https://github.com/mlafeldt) in https://github.com/duckdb/duckdb/pull/23352
+* parquet: reject DATA_PAGE_V2 pages with inconsistent compressed_page_size by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/23279
+* Fix deadlock in `TemporaryMemoryManager` by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/23351
+* Register `oid` of dependencies in the `DependencyManager` so that we can track if an object was re-created with the same name by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/23348
+* [Dev] Fix recursion issue with `scripts/lldb/pointer_print` by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/23362
+* [MultiFileReader] Prevent NULL MAP keys because of (likely missing) default value by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/23354
+* Propagate lambda bindings into `try` operator by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/23375
+* Bump Julia to v1.5.4 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23398
+* Add additional guards to `DICT_FSST` to prevent exception during compression with small block size by [@sebastiaan-dev](https://github.com/sebastiaan-dev) in https://github.com/duckdb/duckdb/pull/23341
+* fix out-of-bounds read in json path ReadKey lookahead by [@jmestwa-coder](https://github.com/jmestwa-coder) in https://github.com/duckdb/duckdb/pull/23371
+* fix out-of-bounds read in string to struct cast by [@jmestwa-coder](https://github.com/jmestwa-coder) in https://github.com/duckdb/duckdb/pull/23384
+* Issue [#23383](https://github.com/duckdb/duckdb/issues/23383): Common Aggregate CTEs by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/23409
+* Use correct start time when verifying dependencies by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/23430
+* Fix false RLE corruption error by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/23458
+* [v1.5] No cache if file doesn't contain version information by [@dentiny](https://github.com/dentiny) in https://github.com/duckdb/duckdb/pull/23434
+* Improve rle corruption error messages by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/23480
+* Issue [#23457](https://github.com/duckdb/duckdb/issues/23457): Ordered FIRST_VALUE Framing  by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/23499
+* Enabled `ALP` and `ALP_RD` for storage version v1.5.0 and up when using smaller block sizes by [@sebastiaan-dev](https://github.com/sebastiaan-dev) in https://github.com/duckdb/duckdb/pull/23483
+* [v1.5] Backport PR [#23444](https://github.com/duckdb/duckdb/issues/23444): fix eviction node memleak when external fi… by [@dentiny](https://github.com/dentiny) in https://github.com/duckdb/duckdb/pull/23479
+* [v1.5] Fix min/max aggregate stats when row groups filtered by [@dentiny](https://github.com/dentiny) in https://github.com/duckdb/duckdb/pull/23517
+* Backport [#23468](https://github.com/duckdb/duckdb/issues/23468) and [#23510](https://github.com/duckdb/duckdb/issues/23510) by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/23529
+* Fix arrow type extension bugs by [@evertlammerts](https://github.com/evertlammerts) in https://github.com/duckdb/duckdb/pull/23534
+* Issue [#23500](https://github.com/duckdb/duckdb/issues/23500): JSON TIMESTAMP_TZ Formatting by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/23513
+* fix out-of-bounds read in dictionary string decompression by [@jmestwa-coder](https://github.com/jmestwa-coder) in https://github.com/duckdb/duckdb/pull/23549
+* Merge v1.4 into v1.5 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23560
+* [ADBC] Add support for duckdb:// URI scheme in URI option by [@amoeba](https://github.com/amoeba) in https://github.com/duckdb/duckdb/pull/21293
+* Fix/capi scalar bind subquery crash by [@krleonid](https://github.com/krleonid) in https://github.com/duckdb/duckdb/pull/23566
+* [variegata] Bump extensions by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23562
+* Fix filter combiner not pruning unsatisfiable bounds by [@DinosL](https://github.com/DinosL) in https://github.com/duckdb/duckdb/pull/23563
+* fix out-of-bounds read on empty byte array decimals by [@jmestwa-coder](https://github.com/jmestwa-coder) in https://github.com/duckdb/duckdb/pull/23567
+* [v1.5] Quickfix `ALTER TABLE ADD COLUMN IF NOT EXISTS ... DEFAULT` regression by [@yan-alex](https://github.com/yan-alex) in https://github.com/duckdb/duckdb/pull/23507
+* Bump version map to include v1.5.5 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23629
+* backport [#23548](https://github.com/duckdb/duckdb/issues/23548) to v1.5 by [@myrrc](https://github.com/myrrc) in https://github.com/duckdb/duckdb/pull/23587
+* Issue [#23641](https://github.com/duckdb/duckdb/issues/23641): CUME_DIST Underflow by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/23651
+* Fixed unsafe iteration when parent is `NULL` in string cast by [@sebastiaan-dev](https://github.com/sebastiaan-dev) in https://github.com/duckdb/duckdb/pull/23593
+* Bump HTTPFS by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/23648
+* backport [#23573](https://github.com/duckdb/duckdb/issues/23573) by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/23672
+* fix(adbc): support the ADBC Statistics API by [@eitsupi](https://github.com/eitsupi) in https://github.com/duckdb/duckdb/pull/23230
+* Issue [#23664](https://github.com/duckdb/duckdb/issues/23664): RANGE ZERO  by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/23710
+* Fix DROP COLUMN corrupting per-column metadata block bookkeeping by [@ywelsch](https://github.com/ywelsch) in https://github.com/duckdb/duckdb/pull/23714
+* Include extension header in libduckdb archives by [@mlafeldt](https://github.com/mlafeldt) in https://github.com/duckdb/duckdb/pull/23752
+* Correctly promote `SUGGEST_NEW` to `REQUIRE_NEW` for variant / geometry columns by [@Mytherin](https://github.com/Mytherin) in https://github.com/duckdb/duckdb/pull/23763
+* Fix lance build on Rust 1.97: patch its Cargo.lock to ethnum 1.5.3 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23770
+* Bump Postgres, MySQL and SQLite in 1.5 by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/23780
+* Fix segfault in external hash aggregate when radix bits grow after going external by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23757
+* Add HTTPUtil::ShouldRetry(request, response) retry-classification hook by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23793
+* Bump azure, unity_catalog extensions to v1.5-variegata HEAD by [@benfleis](https://github.com/benfleis) in https://github.com/duckdb/duckdb/pull/23800
+* Bump extensions in preparation for v1.5.5 by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23794
+* bump iceberg by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/23735
+* Fix for malformed JSON when rendering via duckbox by [@sebastiaan-dev](https://github.com/sebastiaan-dev) in https://github.com/duckdb/duckdb/pull/23803
+* [v1.5] Backport a few fix PRs for v1.5.5 release by [@dentiny](https://github.com/dentiny) in https://github.com/duckdb/duckdb/pull/23804
+* bound alp/alprd exception positions to vector size by [@jmestwa-coder](https://github.com/jmestwa-coder) in https://github.com/duckdb/duckdb/pull/23778
+* Fix swapped min/max for multi-row-group 128-bit DECIMAL in RETURN_STATS by [@sfc-gh-okalaci](https://github.com/sfc-gh-okalaci) in https://github.com/duckdb/duckdb/pull/23693
+* [variegata] Bump quack to 8e715ebb by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23820
+* backport [#22198](https://github.com/duckdb/duckdb/issues/22198) by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/23810
+* [v1.5] Backport two more fixes by [@dentiny](https://github.com/dentiny) in https://github.com/duckdb/duckdb/pull/23841
+* [DependencyManager] Fix ALTER dependency preservation by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/23808
+* TryLookupEntry now uses default schema as fallback by [@okruitho](https://github.com/okruitho) in https://github.com/duckdb/duckdb/pull/23790
+* Fix concurrent ALTER and INSERT crash by [@Tishj](https://github.com/Tishj) in https://github.com/duckdb/duckdb/pull/23861
+* Bump Postgres extension for 1.5 by [@staticlibs](https://github.com/staticlibs) in https://github.com/duckdb/duckdb/pull/23930
+* [v1.5 backport] Fix: reset empty_range in the TIMESTAMP range() table function by [@wmTJc9IK0Q](https://github.com/wmTJc9IK0Q) in https://github.com/duckdb/duckdb/pull/23879
+* Bump extensions for v1.5.5: quack, httpfs and aws by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23892
+* Expose destructors, so they are callable module boundaries by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23953
+* Bump DuckLake by [@pdet](https://github.com/pdet) in https://github.com/duckdb/duckdb/pull/23962
+* Fix OSX ci by [@Tmonster](https://github.com/Tmonster) in https://github.com/duckdb/duckdb/pull/23963
+* Bump lance pin to upstream ethnum fix, drop local patch by [@carlopi](https://github.com/carlopi) in https://github.com/duckdb/duckdb/pull/23969
+* Add missing statement types to capi by [@hrl20](https://github.com/hrl20) in https://github.com/duckdb/duckdb/pull/23407
+* Bump httpfs by [@lnkuiper](https://github.com/lnkuiper) in https://github.com/duckdb/duckdb/pull/24003
+
+**Full Changelog**: https://github.com/duckdb/duckdb/compare/v1.5.4...v1.5.5
+
+---
+
 # v1.5.4 - DuckDB v1.5.4 Bugfix Release <a id="v154"></a>
 
 *Released on 2026-06-17*
@@ -81,6 +174,8 @@ Updated automatically as new DuckDB versions are released.
 [View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.5.4)
 
 This is a bug fix release for various issues discovered after we released v1.5.3.
+
+Please also refer to the announcement blog post: https://duckdb.org/2026/06/17/announcing-duckdb-154.html
 
 ## What's Changed
 * backport 22094 by [@artjomPlaunov](https://github.com/artjomPlaunov) in https://github.com/duckdb/duckdb/pull/22136
@@ -202,6 +297,8 @@ This is a bug fix release for various issues discovered after we released v1.5.3
 [View on GitHub](https://github.com/duckdb/duckdb/releases/tag/v1.4.5)
 
 This is a bug fix release for various issues discovered after we released v1.4.4.
+
+Please also refer to the announcement blog post: https://duckdb.org/2026/06/17/announcing-duckdb-145.html
 
 ## What's Changed
 * Internal #7212: FILL Empty Chunk by [@hawkfish](https://github.com/hawkfish) in https://github.com/duckdb/duckdb/pull/20657
